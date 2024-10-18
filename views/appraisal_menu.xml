@@ -6,7 +6,7 @@
     <record id="action_appraisal" model="ir.actions.act_window">
         <field name="name">Appraisals</field>
         <field name="res_model">appraisal.appraisal</field>
-        <field name="view_mode">tree,form,kanban,calendar</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <menuitem id="appraisal_menu" name="Appraisals" parent="appraisal_menu_root" action="action_appraisal" sequence="10"

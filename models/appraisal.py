@@ -57,7 +57,7 @@ class Appraisal(models.Model):
     employee_feedback_ids = fields.Many2many('hr.employee', string="Asked Feedback")
     survey_ids = fields.Many2many('survey.survey', help="Sent out surveys")
     date_final_interview = fields.Date(string="Final Interview", compute='_compute_final_interview')
-
+    
     @api.depends('meeting_ids.start')
     def _compute_final_interview(self):
         today = fields.Date.today()

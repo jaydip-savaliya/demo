@@ -230,25 +230,26 @@
                     <filter name="state_groupby" context="{'group_by': 'state'}"/>
                     <filter name="groupby_date_close" context="{'group_by': 'date_close'}"/>
                 </group>
-                <searchpanel>
-                    <field name="department_id" icon="fa-users"/>
-                    <field name="state"/>
-                </searchpanel>
             </search>
+            <searchpanel>
+                <field name="department_id" icon="fa-users"/>
+                <field name="state"/>
+            </searchpanel>
         </field>
     </record>
 
     <record id="hr_appraisal_kanban" model="ir.ui.view">
-        <field name="name">hr.appraisal.kanban</field>
+        <field name="name">appraisal.appraisal.kanban</field>
         <field name="model">appraisal.appraisal</field>
         <field name="arch" type="xml">
-            <kanban>
-                <field name="employee_id"/>
-                <field name="date_close"/>
+            <kanban quick_create="false" default_order="state desc, date_close" class="o_hr_employee_kanban" js_class="appraisal_kanban" sample="1">
                 <field name="state"/>
-                <field name="image_emp"/>
-                <field name="waiting_feedback" />
-                 <templates>
+                <field name="activity_ids" />
+                <field name="activity_state" />
+                <field name="manager_ids" />
+                <field name="waiting_feedback"/>
+                <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card oe_kanban_global_click o_kanban_record_has_image_fill o_kanban_card_appraisal">
                             <field name="image_emp" widget="image" class="o_kanban_image_fill_left" options="{'background': true, 'preventClicks': false}"/>
@@ -297,7 +298,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class="oe_clear"></div>
+                            <div class="oe_clear"></div>
                         </div>
                     </t>
                 </templates>

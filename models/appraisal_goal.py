@@ -25,6 +25,9 @@ class HrAppraisalGoal(models.Model):
         ('75', '75 %'),
         ('100', '100 %')
     ], string="Progress", compute="_compute_progress", store=True)
+
+    def action_confirm(self):
+        self.write({'progression': '100'})
     
     @api.depends('attachment_file', 'description', 'deadline')
     def _compute_progress(self):

@@ -6,10 +6,20 @@
         <field name="model">appraisal.goal</field>
         <field name="arch" type="xml">
             <form string="Appraisal Goal">
+                <header>
+                    <button name="action_confirm" type="object"
+                            string="Mark as Done" class="oe_highlight"
+                            attrs="{'invisible': [('progression', '=', '100')]}"/>
+                </header>
                 <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Goal"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Present yourself to your new team"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="name" required="1"/>
                             <field name="employee_id" required="1"/>
                             <field name="manager_id" required="1"/>
                             <field name="show_attachments"/>
@@ -37,12 +47,12 @@
         <field name="name">appraisal.goal.tree</field>
         <field name="model">appraisal.goal</field>
         <field name="arch" type="xml">
-            <tree string="Appraisal Goals">
-                <field name="name"/>
-                <field name="employee_id"/>
-                <field name="manager_id"/>
-                <field name="progression"/>
-                <field name="deadline"/>
+            <tree sample="1" class="o_goal_list">
+                <field name="name" class="font-weight-bold"/>
+                <field name="deadline" widget="remaining_days"/>
+                <field name="progression" widget="badge" decoration-success="progression == '100'"/>
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+                <field name="manager_id" widget="many2one_avatar_employee"/>
             </tree>
         </field>
     </record>
