@@ -87,8 +87,7 @@
         parent="appraisal_menu_root"
         id="menu_appraisal_report"
         action="action_appraisal_report"
-        sequence="20"
-        groups="aspl_hr_appraisal.group_hr_appraisal_manager"/>
+        sequence="20"/>
 
      <menuitem name="Appraisal Analysis"
               parent="menu_appraisal_report"

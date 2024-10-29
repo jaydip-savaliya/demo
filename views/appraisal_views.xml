@@ -16,6 +16,7 @@
     <record id="hr_appraisal_form" model="ir.ui.view">
         <field name="name">appraisal.form</field>
         <field name="model">appraisal.appraisal</field>
+        <field name="groups_id" eval="[(4, ref('aspl_hr_appraisal.group_appraisal_manager'))]"/>
         <field name="arch" type="xml">
             <form string="Appraisal">
                 <header>
@@ -94,14 +95,9 @@
                                     <div class="col-12">
                                         <field name="employee_feedback" class="o_appraisal_template" nolabel="1" attrs="{
                                             'invisible': [
-                                                '&amp;',
                                                 ('is_employee_feedback_published', '=', False),
                                                 ('can_see_employee_publish', '=', False)
-                                            ],
-                                            'readonly': [
-                                                '|',
-                                                ('state', 'not in', ['new', 'pending']),
-                                                ('can_see_employee_publish', '=', False)]}"/>
+                                            ]}"/>
                                     </div>
                                 </div>
                             </group>
@@ -212,29 +208,36 @@
     </record>
 
     <record id="hr_appraisal_search" model="ir.ui.view">
-        <field name="name">hr.appraisal.search</field>
+        <field name="name">appraisal.appraisal.search</field>
         <field name="model">appraisal.appraisal</field>
         <field name="arch" type="xml">
             <search string="Search Appraisal">
                 <field name="employee_id"/>
-                <filter string="All" name="my_appraisals"
-                        domain="['|', ('state', '=', 'new'), ('state', '=', 'pending')]"/>
+                <filter string="To Do" name="my_appraisals" domain="['|', ('state', '=', 'new'), ('state', '=', 'pending')]"/>
                 <filter string="Done" name="filter_done" domain="[('state', '=', 'done')]"/>
                 <separator/>
-                <filter string="My Appraisal" name="my_appraisals" domain="[('employee_id.user_id', '=', uid)]"/>
-                <filter string="People I Manage" name="people_i_manage" domain="[('employee_id.parent_id.user_id', '=', uid)]"/>
+                <filter string="My Appraisals" name="my_appraisals" domain="[('employee_id.user_id', '=', uid)]"/>
+                <filter string="People I Manage" name="people_i_manage" domain="[('employee_id.parent_id.user_id', '=', uid)]" groups="hr_appraisal.group_hr_appraisal_user"/>
                 <separator/>
-                <group expand="0" string="Group by...">
-                    <filter string="Employees" name="employee" icon="fa-user" domain="[]"
-                            context="{'group_by': 'employee_id'}"/>
-                    <filter name="state_groupby" context="{'group_by': 'state'}"/>
-                    <filter name="groupby_date_close" context="{'group_by': 'date_close'}"/>
-                </group>
-            </search>
-            <searchpanel>
-                <field name="department_id" icon="fa-users"/>
-                <field name="state"/>
-            </searchpanel>
+                <filter string="Late" name="late_appraisals" domain="[('state', 'not in', ['cancel', 'done']), ('date_close', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Late Activities" name="activities_overdue"
+                    domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Today Activities" name="activities_today"
+                    domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group expand='0' string='Group by...'>
+                    <filter string='Employee' name="employee" icon="fa-user" domain="[]" context="{'group_by': 'employee_id'}"/>
+                    <filter name="groupby_state" context="{'group_by': 'state'}"/>
+               </group>
+                <searchpanel>
+                    <field name="company_id" groups="base.group_multi_company" icon="fa-building"/>
+                    <field name="department_id" icon="fa-users"/>
+                    <field name="state"/>
+                </searchpanel>
+           </search>
         </field>
     </record>
 

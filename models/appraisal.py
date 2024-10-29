@@ -40,7 +40,7 @@ class Appraisal(models.Model):
     meeting_count = fields.Char(string='Meeting Count', compute='_compute_meeting_count')
     final_date = fields.Date(string="Final Interview", compute='_compute_final_date')
     manager_feedback = fields.Boolean(compute='_compute_manager_feedback')
-    can_see_employee_publish = fields.Boolean(compute='_compute_buttons_display')
+    can_see_employee_publish = fields.Boolean(compute='_compute_buttons_display', readonly=False)
     can_see_manager_publish = fields.Boolean(compute='_compute_buttons_display')
     goals_count = fields.Integer(related='employee_id.goals_count')
     employee_feedback = fields.Html(compute='_compute_employee_feedback', store=True, readonly=False)
