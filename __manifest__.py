@@ -10,7 +10,6 @@
     "category": "Base",
     "summary": "Keep allowed companies selected by defult when user logs in.",
     "version": "18.0.0.1.0",
-    "price": 9.99,
     "license": "AGPL-3",
     'description': """
         In Odoo, user may be granted with access to multiple companies. This module helps you keep all allowed companies enabled when user logs in. However, user can belong to only a single compnay. The module also select the native company upon login.
@@ -25,6 +24,5 @@
     },
     "application": True,
     "installable": True,
-    "maintainer": "Aspire Softserv Pvt. Ltd",
-    "support": "odoo@aspiresoftserv.com",
+    "images": ['static/description/banner.gif'],
 }
