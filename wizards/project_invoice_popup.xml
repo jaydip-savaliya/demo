@@ -46,9 +46,7 @@
                         <group invisible="state != 'draft'">
                             <group>
                                 <field name="discount_type"/>
-
                             </group>
-
                             <group>
                                 <field name="discount_rate"/>
                             </group>
