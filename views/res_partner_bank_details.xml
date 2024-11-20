@@ -2,17 +2,17 @@
 <odoo>
     <data>
 
-        <record id="bank_details_list" model="ir.ui.view">
+        <record id="bank_details_tree" model="ir.ui.view">
             <field name="name">Bank Accounts</field>
             <field name="model">res.partner.bank</field>
             <field name="arch" type="xml">
-                <list>
+                <tree>
                     <field name="bank_id"/>
                     <field name="acc_number"/>
                     <field name="partner_id"/>
                     <field name="bank_bic"/>
                     <field name="company_id"/>
-                </list>
+                </tree>
             </field>
         </record>
 
@@ -26,7 +26,7 @@
                 </xpath>
                 <xpath expr="//field[@name='acc_number']" position="before">
                     <field name="bank_id"/>
-                    <field name="acc_number" required="1"/>
+                     <field name="acc_number" required="1"/>
                     <field name="bank_bic"/>
                     <field name="company_id" readonly="True"/>
                 </xpath>
