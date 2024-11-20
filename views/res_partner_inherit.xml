@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="inherit_view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/group" position="inside">
+                    <field name="currency"/>
+                    <field name="payment_detial"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='accounting']" position="inside">
+                    <group>
+                        <group string="Taxes" name="taxe_entries" groups="account.group_account_invoice">
+                            <field name="tax_ids" widget="many2many_tags" domain="[('company_id','=',company_id)]"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

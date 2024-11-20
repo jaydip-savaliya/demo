@@ -6,23 +6,33 @@
 #
 ###############################################################################
 {
-    "name": "Automatic Multi Company Selection",
-    "category": "Base",
-    "summary": "Keep allowed companies selected by defult when user logs in.",
+    "name": "Project Invoice",
+    "category": "Accounting",
+    "summary": "Project Timesheet Invoice",
     "version": "18.0.0.1.0",
+    "price": 50.00,
     "license": "AGPL-3",
-    'description': """
-        In Odoo, user may be granted with access to multiple companies. This module helps you keep all allowed companies enabled when user logs in. However, user can belong to only a single compnay. The module also select the native company upon login.
-    """,
     "author": "Aspire Softserv Pvt. Ltd",
     "website": "https://aspiresoftserv.com",
-    "depends": ['web'],
-    'assets': {
-        'web.assets_backend': [
-            'aspl_select_multi_company/static/src/js/company_service.js',
-        ],
-    },
+    'description': """
+        This module automates the process of generating detailed invoices based on project timesheet data, ensuring accurate and efficient billing procedures.
+    """,
+    "depends": ['hr', 'account', 'hr_timesheet', 'l10n_in'],
+    "data": [
+        "security/ir.model.access.csv",
+        'views/account_analytic_line.xml',
+        'views/project_configuration.xml',
+        'views/res_partner_inherit.xml',
+        'views/payment_swift_details_view.xml',
+        'views/invoice_view_inherit.xml',
+        'views/res_partner_bank_details.xml',
+        'report/invoice_report.xml',
+        'wizards/project_invoice_popup.xml',
+        'wizards/product_change_timesheet.xml',
+    ],
     "application": True,
     "installable": True,
+    "maintainer": "Aspire Softserv Pvt. Ltd",
+    "support": "odoo@aspiresoftserv.com",
     "images": ['static/description/banner.gif'],
 }
