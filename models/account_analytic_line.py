@@ -13,7 +13,6 @@ class AccountAnalyticLine(models.Model):
             project = context['active_id']
             project_id = self.env['project.project'].browse(project)
             domain = [('id', 'in', project_id.product_id.ids)]
-
         else:
             domain = [('id', 'in', [])]
 
@@ -23,22 +22,21 @@ class AccountAnalyticLine(models.Model):
         context = self._context
         account_line = context.get('json_data')
 
-        if account_line and 'params' in account_line and len(account_line['params'].get('args',[])) > 1:
+        if account_line and 'params' in account_line and len(account_line['params'].get('args', [])) > 1:
             args = account_line['params']['args']
-            if 'task_id' in ['args'][1]:
+            if 'task_id' in args[1]:
                 current_uid = context.get('uid')
                 task_id = args[1]['task_id']['id']
 
                 if task_id:
-                    analytic_line = self.env['account.analytic.line'].search(
-                        [('task_id', '=', task_id), ('user_id', '=', current_uid)], limit=1, order='id desc')
+                    analytic_line = self.env['account.analytic.line'].search([('task_id', '=', task_id), ('user_id', '=', current_uid)],limit=1,order='id desc')
                     if analytic_line.product_type:
                         return analytic_line.product_type.id
+
                     project_id = context.get('default_project_id')
                     if project_id:
                         project_line = self.env['account.analytic.line'].search(
-                            [('task_id.project_id', '=', project_id), ('user_id', '=', current_uid)], limit=1,
-                            order='id desc')
+                            [('task_id.project_id', '=', project_id), ('user_id', '=', current_uid)],limit=1,order='id desc')
                         if project_line.product_type:
                             return project_line.product_type.id
                         else:
@@ -69,7 +67,7 @@ class AccountAnalyticLine(models.Model):
     product_type = fields.Many2one("product.product", domain=_get_project_product, string="Product",
                                    default=lambda self: self._set_default_product())
     user_id = fields.Many2one('res.users', string='User')
-    # display_name = fields.Many2one('res.users', 'Display Name', default=lambda self: self.env.user)
+    # display_name = fields.Many2one(comodel_name='res.users', string='Display Name', default=lambda self: self.env.user)
     name = fields.Text('Description')
 
     @api.onchange('project_id')
