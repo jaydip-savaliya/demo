@@ -27,7 +27,6 @@
         'wizard/request_appraisal_views.xml',
         'wizard/appraisal_ask_feedback_views.xml',
         'report/appraisal_analysis_report_view.xml',
-
     ],
     'assets': {
         'web.assets_backend': [

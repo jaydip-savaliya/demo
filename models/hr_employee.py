@@ -13,7 +13,7 @@ class HrEmployee(models.Model):
     goals_count = fields.Integer(compute='_compute_goals_count')
     related_partner_id = fields.Many2one('res.partner', compute='_compute_related_partner')
     appraisal_child_ids = fields.Many2many('hr.employee', compute='_compute_appraisal_child_ids')
-    appraisal_ids = fields.One2many('appraisal.appraisal', 'employee_id')
+    # appraisal_ids = fields.One2many('employee.appraisal', 'employee_id')
 
     @api.depends('next_appraisal_date')
     def _compute_next_appraisal_date(self):

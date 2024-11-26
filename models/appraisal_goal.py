@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import fields, api, models
 from odoo.exceptions import ValidationError
 
@@ -15,8 +14,8 @@ class HrAppraisalGoal(models.Model):
                                   default=lambda self: self.env.user.employee_id, required=True)
     manager_id = fields.Many2one('hr.employee', string="Manager", required=True)
     manager_user_id = fields.Many2one('res.users', related='manager_id.user_id')
-    description = fields.Html(string='Description')
-    deadline = fields.Date(string='Deadline')
+    description = fields.Html(string="Description")
+    deadline = fields.Date(string="Deadline")
     notes = fields.Html(string="Description", help="The content of this description is not visible by the Employee.")
     show_attachments = fields.Boolean(string="Show Attachments", default=False)
     attachment_file = fields.Binary(string="Attachment")

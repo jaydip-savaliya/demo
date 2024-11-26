@@ -155,7 +155,7 @@ class Appraisal(models.Model):
                 else appraisal.company_id.send_feedback_employee
             appraisal.manager_feedback_template = appraisal.department_id.manager_feedback_template if appraisal.department_id.custom_appraisal_templates \
                 else appraisal.company_id.send_feedback_manager
-
+    #
     @api.depends('department_id')
     def _compute_employee_feedback(self):
         for appraisal in self.filtered(lambda a: a.state == 'new'):

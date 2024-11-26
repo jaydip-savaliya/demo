@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+from email.policy import default
 
 from odoo import api, fields, models, _
 
@@ -92,7 +93,8 @@ class ResCompany(models.Model):
             <li>
                 <em>Culture/Behavior:</em>
                 <span class="o_stars o_five_stars" id="checkId-1">
-                    <i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i>
+                    <i class="fa fa-star-from dateutil.relativedelta import relativedelta
+o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i>
                 </span>
             </li>
             <li>
@@ -111,7 +113,7 @@ class ResCompany(models.Model):
                 </span>
             </li>
             <li>
-                <em>Work organization:</em>
+                <em>Work organiziiiation:</em>
                 <span class="o_stars o_five_stars" id="checkId-4">
                     <i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i>
                 </span>
@@ -127,7 +129,7 @@ class ResCompany(models.Model):
 
     def _get_default_manager_feedback_template(self):
         return """
-    <h2>
+                <h2>
                     <span style="font-weight: bolder;">
                         Feedback
                     </span>
