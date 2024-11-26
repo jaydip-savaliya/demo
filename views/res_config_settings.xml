@@ -6,18 +6,20 @@
         <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="Appraisal" string="Appraisal" data-key="hr_appraisal" groups="hr.group_hr_manager">
+                <div class="app_settings_block" data-string="Appraisal" string="Appraisal" data-key="hr_appraisal"
+                     groups="hr.group_hr_manager">
                     <h2>Feedback Templates</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-12 o_setting_box">
                             <div class="o_setting_left_pane"/>
                             <div class="o_setting_right_pane">
                                 <span class="o_form_label">Feedback Templates</span>
-                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." role="img" aria-label="Values set here are company-specific." groups="base.group_multi_company"/>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                      role="img" aria-label="Values set here are company-specific."
+                                      groups="base.group_multi_company"/>
                                 <div class="text-muted">
                                     Configure General Feedback Template
                                 </div>
-
                                 <div class="row mt16">
                                     <div class="col-lg-6">
                                         <label for="send_feedback_employee" class="fw-bold" string="Measure Compliment Template"/>
@@ -39,14 +41,18 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <span class="o_form_label">Appraisals Plans</span>
-                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." role="img" aria-label="Values set here are company-specific." groups="base.group_multi_company"/>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                      role="img" aria-label="Values set here are company-specific."
+                                      groups="base.group_multi_company"/>
                                 <div class="text-muted">
                                     Automatically generate appraisals
                                 </div>
                                 <div attrs="{'invisible': [('hr_appraisal_plan','=',False)]}" class="mt8">
                                     <div class="content-group">
-                                        <field name="duration_after_recruitment" class="text-center w-10" style="width: 10%; min-width: 4rem;"/>
-                                        <label for="duration_after_recruitment" string=" months after recruitment, then after" class="o_light_label"/>
+                                        <field name="duration_after_recruitment"
+                                               class="text-center w-10" style="width: 10%; min-width: 4rem;"/>
+                                        <label for="duration_after_recruitment" string=" months after recruitment,"
+                                               class="o_light_label"/>
                                     </div>
                                     <div class="content-group">
                                         <field name="month_first" class="text-center" style="width: 10%; min-width: 4rem;"/>
@@ -63,7 +69,9 @@
                             </div>
                             <div class="o_setting_right_pane" name="360_feedback">
                                 <span class="o_form_label">360 Feedback</span>
-                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." role="img" aria-label="Values set here are company-specific." groups="base.group_multi_company"/>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                      role="img" aria-label="Values set here are company-specific."
+                                      groups="base.group_multi_company"/>
                                 <div class="text-muted">
                                     Ask to fill a survey to other employees
                                 </div>
@@ -85,10 +93,8 @@
     </record>
 
     <menuitem id="hr_appraisal_menu_configuration"
-        name="Settings"
-        parent="menu_appraisal_configuration"
-        sequence="0"
-        action="appraisal_config_settings_action"
-    />
-
+              name="Settings"
+              parent="menu_appraisal_configuration"
+              sequence="0"
+              action="appraisal_config_settings_action"/>
 </odoo>

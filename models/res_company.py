@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from email.policy import default
 
+from email.policy import default
 from odoo import api, fields, models, _
 
 
@@ -113,7 +113,7 @@ o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"><
                 </span>
             </li>
             <li>
-                <em>Work organiziiiation:</em>
+                <em>Work organization:</em>
                 <span class="o_stars o_five_stars" id="checkId-4">
                     <i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"></i>
                 </span>
@@ -129,7 +129,7 @@ o" contenteditable="false"></i><i class="fa fa-star-o" contenteditable="false"><
 
     def _get_default_manager_feedback_template(self):
         return """
-                <h2>
+    <h2>
                     <span style="font-weight: bolder;">
                         Feedback
                     </span>

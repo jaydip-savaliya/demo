@@ -3,7 +3,7 @@
 
 {
     'name': 'Appraisal',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Human Resources/Appraisal',
     'sequence': 10,
     'summary': 'Appraisal Management',
@@ -27,6 +27,7 @@
         'wizard/request_appraisal_views.xml',
         'wizard/appraisal_ask_feedback_views.xml',
         'report/appraisal_analysis_report_view.xml',
+
     ],
     'assets': {
         'web.assets_backend': [

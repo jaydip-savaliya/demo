@@ -58,11 +58,10 @@
 }
 
 .o_appraisal_form {
-    .o_form_sheet {
+    o_form_sheet {
         padding-bottom: 0 !important;
     }
-
-    div.o_field_boolean_toggle_confirm, div.o_field_boolean_toggle {
+     div.o_field_boolean_toggle_confirm, div.o_field_boolean_toggle {
         display: inline-flex;
     }
     div.o_boolean_toggle {
@@ -156,7 +155,7 @@
     }
 }
 
-.o_appraisal_goal_form {
+o_appraisal_goal_form {
     .o_selection_badge.active {
         background: $o-brand-odoo !important;
         color: $o-white !important;
