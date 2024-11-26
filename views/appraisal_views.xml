@@ -369,7 +369,6 @@
         </field>
     </record>
 
-
     <record id="appraisal_appraisal_view_calendar" model="ir.ui.view">
         <field name="name">appraisal.appraisal.calendar</field>
         <field name="model">appraisal.appraisal</field>

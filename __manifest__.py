@@ -3,7 +3,7 @@
 
 {
     'name': 'Appraisal',
-    'version': '15.0',
+    'version': '16.0.1.0.0',
     'category': 'Human Resources/Appraisal',
     'sequence': 10,
     'summary': 'Appraisal Management',

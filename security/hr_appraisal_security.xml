@@ -15,7 +15,7 @@
     </record>
 
     <record id="base.default_user" model="res.users">
-        <field name="groups_id" eval="[(4,ref('aspl_hr_appraisal.group_hr_appraisal_manager'))]"/>
+        <field name="groups_id" eval="[]"/>
     </record>
 
     <record id="rule_appraisal_goal_own_record" model="ir.rule">

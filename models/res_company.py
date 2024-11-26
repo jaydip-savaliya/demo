@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import datetime
-from dateutil.relativedelta import relativedelta
-
 from odoo import api, fields, models, _
-from odoo.tools.misc import format_date
 
 
 class ResCompany(models.Model):
@@ -260,7 +256,7 @@ class ResCompany(models.Model):
                     <br/>
                 </p>
             """
-            
+
     def _get_default_appraisal_survey_template_id(self):
         return self.env.ref('hr_appraisal_survey.appraisal_feedback_template', raise_if_not_found=False)
 
