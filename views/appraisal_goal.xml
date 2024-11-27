@@ -9,7 +9,7 @@
                 <header>
                     <button name="action_confirm" type="object"
                             string="Mark as Done" class="oe_highlight"
-                            attrs="{'invisible': [('progression', '=', '100')]}"/>
+                            invisible="progression == '100'"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -23,7 +23,7 @@
                             <field name="employee_id" required="1"/>
                             <field name="manager_id" required="1"/>
                             <field name="show_attachments"/>
-                            <field name="attachment_file" attrs="{'invisible': [('show_attachments', '=', False)]}"/>
+                            <field name="attachment_file" invisible="show_attachments == False"/>
                             <field name="attachment_filename" invisible="1"/>
                         </group>
                         <group>
@@ -31,7 +31,7 @@
                             <field name="deadline"/>
                             <field name="is_manager" invisible="1"/>
                             <field name="progression" string="Progress" widget="selection_badge"
-                                   attrs="{'readonly': [('employee_id', '=', True)]}"/>
+                                   readonly="employee_id == True"/>
                         </group>
                     </group>
                     <notebook>
@@ -81,7 +81,7 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card oe_kanban_global_click oe_kanban_content">
-                            <div class="ribbon ribbon-top-right" attrs="{'invisible': [('progression', '!=', '100')]}">
+                            <div class="ribbon ribbon-top-right" invisible="progression != '100'">
                                 <span class="bg-success">Done</span>
                             </div>
                             <div class="o_dropdown_kanban dropdown" groups="base.group_user">
